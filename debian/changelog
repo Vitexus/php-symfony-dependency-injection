@@ -1,3 +1,12 @@
+php-symfony-dependency-injection (6.4.9.1) forky; urgency=medium
+
+  * Generate autoload.php via phpabtpl/phpab so the package is
+    compatible with php-symfony-config etc. built the same way as
+    Ubuntu's 6.4.5+dfsg-3ubuntu3 (fixes phpMyAdmin fatal error from
+    missing autoload.php).
+
+ -- Vítězslav Dvořák <info@vitexsoftware.cz>  Wed, 08 Jul 2026 12:02:22 +0200
+
 php-symfony-dependency-injection (6.4.9) forky; urgency=medium
 
   * Backport of Symfony DependencyInjection 6.4.9 for Debian forky.

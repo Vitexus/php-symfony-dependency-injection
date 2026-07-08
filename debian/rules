@@ -3,15 +3,19 @@
 %:
 	dh $@ --with phpcomposer
 
+SRC_ENTRIES := $(shell find . -maxdepth 1 -mindepth 1 \
+	! -name 'Tests' ! -name 'debian' ! -name '.git' \
+	! -name '.github' ! -name '.gitignore' ! -name '.gitattributes' \
+	! -name 'composer.json' ! -name 'phpunit.xml.dist' \
+	! -name 'README.md' ! -name 'CHANGELOG.md' ! -name 'LICENSE' \
+	! -name 'autoload.php')
+
 override_dh_auto_build:
+	phpabtpl composer.json > debian/autoload.php.tpl
+	phpab --output autoload.php --template debian/autoload.php.tpl --basedir . $(SRC_ENTRIES)
 
 override_dh_auto_test:
 
 override_dh_install:
 	install -d debian/php-symfony-dependency-injection/usr/share/php/Symfony/Component/DependencyInjection
-	find . -maxdepth 1 -mindepth 1 \
-		! -name 'Tests' ! -name 'debian' ! -name '.git' \
-		! -name '.github' ! -name '.gitignore' ! -name '.gitattributes' \
-		! -name 'composer.json' ! -name 'phpunit.xml.dist' \
-		! -name 'README.md' ! -name 'CHANGELOG.md' ! -name 'LICENSE' \
-		-exec cp -rp {} debian/php-symfony-dependency-injection/usr/share/php/Symfony/Component/DependencyInjection/ \;
+	cp -rp $(SRC_ENTRIES) autoload.php debian/php-symfony-dependency-injection/usr/share/php/Symfony/Component/DependencyInjection/

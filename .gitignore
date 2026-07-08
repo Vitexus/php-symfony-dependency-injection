@@ -1,3 +1,5 @@
 vendor/
 composer.lock
 phpunit.xml
+/autoload.php
+/debian/autoload.php.tpl
