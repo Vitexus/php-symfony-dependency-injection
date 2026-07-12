@@ -1,8 +1,15 @@
 #!groovy
 
-String[] distributions = ['debian:bookworm', 'debian:trixie',
-'debian:forky',
-'ubuntu:jammy', 'ubuntu:noble', 'ubuntu:resolute']
+// This package is a backport: only needed where the distro's native
+// php-symfony-dependency-injection is older than symfony/dependency-injection's
+// own floor (^6.2.10|^7.0). Distros already at/above that floor natively
+// are excluded to avoid shipping a redundant/conflicting duplicate:
+//   debian:trixie  ships 6.4.41 (>=6.2.10)
+//   debian:forky   ships 7.4.14 (>=7.0)
+//   ubuntu:noble   ships 6.4.5  (>=6.2.10, universe)
+//   ubuntu:resolute ships 7.4.7 (>=7.0, universe)
+String[] distributions = ['debian:bookworm',
+'ubuntu:jammy']
 
 String vendor = 'vitexsoftware'
 
