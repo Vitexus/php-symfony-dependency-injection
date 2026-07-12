@@ -9,8 +9,8 @@ Build-Depends: debhelper-compat (= 13), pkg-php-tools, phpab,
  php-symfony-var-exporter
 Standards-Version: 4.6.2
 Homepage: https://symfony.com/components/DependencyInjection
-Vcs-Git: https://github.com/VitexSoftware/php-symfony-dependency-injection.git
-Vcs-Browser: https://github.com/VitexSoftware/php-symfony-dependency-injection
+Vcs-Git: https://github.com/Vitexus/php-symfony-dependency-injection.git
+Vcs-Browser: https://github.com/Vitexus/php-symfony-dependency-injection
 Rules-Requires-Root: no
 
 Package: php-symfony-dependency-injection
