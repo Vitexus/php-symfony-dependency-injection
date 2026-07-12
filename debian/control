@@ -2,7 +2,11 @@ Source: php-symfony-dependency-injection
 Section: php
 Priority: optional
 Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
-Build-Depends: debhelper-compat (= 13), pkg-php-tools, phpab
+Build-Depends: debhelper-compat (= 13), pkg-php-tools, phpab,
+ php-psr-container,
+ php-symfony-deprecation-contracts,
+ php-symfony-service-contracts,
+ php-symfony-var-exporter
 Standards-Version: 4.6.2
 Homepage: https://symfony.com/components/DependencyInjection
 Vcs-Git: https://github.com/VitexSoftware/php-symfony-dependency-injection.git
